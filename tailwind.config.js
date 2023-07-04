@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -7,10 +8,13 @@ module.exports = {
       colors: {
         customGray: '#757575',
         customViolet: '#a445ed',
-        backGroundDark: '#050505',
+        backGroundDark: 'var(--color-bg)',
         searchText: '#c2c2c2',
         lightGray: '#e9e9e9',
         wordSearchInput: '#f4f4f4',
+      },
+      textColor: {
+        white: 'var(--color-text)',
       },
     },
   },

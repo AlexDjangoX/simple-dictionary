@@ -48,8 +48,6 @@ const Navbar = () => {
     setWord('');
   };
 
-  console.log(wordData.meanings[0].definitions);
-
   return (
     <>
       <section className="pl-[1.5rem] pt-[1.5rem] pr-[1.5rem] pb-0 m-auto max-w-[46rem] dark:bg-backGroundDark">
@@ -134,7 +132,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center pt-6">
           <p className="font-bold font-italic text-xl dark:text-white ">{wordData?.meanings[0]?.partOfSpeech}</p>
-          <div className="flex-grow border-t border-white mx-4" />
+          <div className="flex-grow border-t border-black dark:border-white mx-4" />
         </div>
         <p className="text-customGray text-lg pt-6 pb-6">Meaning</p>
         <div className="dark:text-white">
@@ -149,7 +147,7 @@ const Navbar = () => {
 
         <div className="flex items-center pt-6">
           <p className="font-bold font-italic text-xl dark:text-white ">{wordData?.meanings[1]?.partOfSpeech}</p>
-          <div className="flex-grow border-t border-white mx-4" />
+          <div className="flex-grow border-t border-black dark:border-white mx-4" />
         </div>
         <p className="text-customGray text-lg pt-6 pb-6">Meaning</p>
         <div className="dark:text-white pb-12">
@@ -161,6 +159,7 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
+        <hr className="my-6 border-black dark:border-white" />
 
       </section>
       )}
