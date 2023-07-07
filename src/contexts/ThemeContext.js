@@ -6,15 +6,22 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+      localStorage.theme = newTheme;
+      return newTheme;
+    });
   };
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const selectedTheme = localStorage.theme || (prefersDarkMode ? 'dark' : 'light');
+
+    setTheme(selectedTheme);
+
+    document.documentElement.classList.toggle('dark', selectedTheme === 'dark');
+    localStorage.theme = selectedTheme;
   }, [theme]);
 
   return (

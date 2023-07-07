@@ -60,13 +60,13 @@ const Navbar = () => {
           <div className="flex ">
             <div className="relative inline-block">
               <select
-                className="appearance-none block w-auto py-2 pl-3 pr-8 text-[1rem] font-bold text-gray-700 bg-white focus:outline-none  focus:ring-gray-200 focus:border-none dark:text-white dark:bg-backGroundDark "
+                className={`font-${fontType} appearance-none block w-auto py-2 pl-3 pr-8 text-[1rem] font-bold text-gray-700 bg-white focus:outline-none  focus:ring-gray-200 focus:border-none dark:text-white dark:bg-backGroundDark`}
                 value={fontType}
                 onChange={handleFontChange}
               >
-                <option value="sans-serif">Sans Serif</option>
-                <option value="serif">Serif</option>
-                <option value="monospace">Monospace</option>
+                <option value="sans" className="font-sans">Sans Serif</option>
+                <option value="serif" className="font-serif">Serif</option>
+                <option value="mono" className="font-mono">Monospace </option>
               </select>
 
               <img src={arrowIcon} alt="Arrow Icon" className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
@@ -119,7 +119,7 @@ const Navbar = () => {
       </section>
 
       {wordData && (
-      <section className="pl-[1.5rem] pt-[1.5rem] pr-[1.5rem] pb-0 m-auto max-w-[46rem] dark:bg-backGroundDark">
+      <section className={`font-${fontType}  pl-[1.5rem] pt-[1.5rem] pr-[1.5rem] pb-0 m-auto max-w-[46rem] dark:bg-backGroundDark}`}>
         <div className="flex justify-between">
           <div><h1 className="font-bold text-4xl dark:text-white">{wordData?.word}</h1>
             <p className="text-customViolet text-xl py-3">{wordData?.phonetic}</p>
@@ -160,6 +160,7 @@ const Navbar = () => {
           </ul>
         </div>
         <hr className="my-6 border-black dark:border-white" />
+        <h1 className="my-6 text-red-800 text-4xl dark:text-green-900 dark:text-5xl">Dark mode test</h1>
 
       </section>
       )}
